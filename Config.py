@@ -1,3 +1,4 @@
+import streamlit as st
 # ── Database ───────────────────────────────────────────────────────────────────
 DB_HOST     = st.secrets["database"]["host"]
 DB_USER     = st.secrets["database"]["user"]
