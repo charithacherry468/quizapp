@@ -1,12 +1,16 @@
-# Config.py — reads flat keys from Streamlit secrets
-import streamlit as st
+# ── Database ───────────────────────────────────────────────────────────────────
+DB_HOST     = st.secrets["database"]["host"]
+DB_USER     = st.secrets["database"]["user"]
+DB_PASSWORD = st.secrets["database"]["password"]
+DB_NAME     = st.secrets["database"]["name"]
 
-DB_HOST     = st.secrets["DB_HOST"]
-DB_USER     = st.secrets["DB_USER"]
-DB_PASSWORD = st.secrets["DB_PASSWORD"]
-DB_NAME     = st.secrets["DB_NAME"]
+# ── Email ──────────────────────────────────────────────────────────────────────
+SENDER_EMAIL        = st.secrets["email"]["sender_email"]
+SENDER_APP_PASSWORD = st.secrets["email"]["app_password"]
 
-SENDER_EMAIL        = st.secrets["SENDER_EMAIL"]
-SENDER_APP_PASSWORD = st.secrets["SENDER_APP_PASSWORD"]
+# ── Password policy (not secret — safe here) ──────────────────────────────────
+SPECIAL_CHARS = set("!@#$%^&*()_+?><:}{][")
 
-SPECIAL_CHARS = st.secrets.get("SPECIAL_CHARS", "!@#$%^&*()_+-=[]{}|;':\",./<>?")
+# ── Quiz settings (not secret — safe here) ────────────────────────────────────
+QUIZ_DURATION   = 5 * 60   # seconds
+TOTAL_QUESTIONS = 15
